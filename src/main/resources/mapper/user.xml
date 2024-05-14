@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.springmvc.mapper.UserMapper">
+    <resultMap id="baseMap" type="org.example.springmvc.model.User">
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+    </resultMap>
+
+    <select id="find"  resultMap="baseMap">
+        select * from user limit #{pageNo}, #{pageSize}
+    </select>
+
+    <select id="findByName" parameterType="string" resultMap="baseMap">
+        select * from user where username = #{username}
+    </select>
+
+    <insert id="add" parameterType="org.example.springmvc.model.User"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into user(`username`) values (#{username})
+    </insert>
+
+    <update id="update" parameterType="org.example.springmvc.model.User" >
+        update user set username=#{username} where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="long" >
+        delete from user where id=#{id}
+    </delete>
+</mapper>
