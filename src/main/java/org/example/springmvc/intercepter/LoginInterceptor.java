@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author gaoshaozhen
  */
 @Slf4j
-@Component
+@Component // 这里不访问数据库，就不用@Service了
 public class LoginInterceptor implements HandlerInterceptor {
 
 

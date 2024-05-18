@@ -21,12 +21,15 @@ import java.util.UUID;
 
 /**
  *  @Transactional 注解加载类上 则类内所有的方法，加在方法上则只作用与该方法二不会影响其他方法
+ * @Slf4j日志框架 可以查看target/下的UserServiceImpl文件： private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
+ * @Service把当前 UserServiceImpl 注册为一个Spring Bean
  */
 @Transactional
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
 
+//    把 UserMapper 这个Spring Bean Set到这里，其实就是依赖注入。相当于以前的实例化方法(new)参考。
     @Autowired
     private UserMapper userMapper;
 
@@ -107,7 +110,7 @@ public class UserServiceImpl implements UserService {
         param.setToken(UUID.randomUUID().toString());
         sessionCache.put(param.getToken(), param);
         log.info("用户:{} 登录成功", param.getUsername());
-        return param;
+        return user;//param;
     }
 
     @Override

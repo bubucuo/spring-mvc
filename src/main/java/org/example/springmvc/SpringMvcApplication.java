@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ImportResource;
 
-//Spring bean的两种声明方式
+//Spring bean 的两种声明方式
 //1. xml
 //2. 注解 (DataSourceConfig)
-//@ImportResource("classpath:context.xml")
+@ImportResource("classpath:context.xml")
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class SpringMvcApplication {
 

@@ -10,3 +10,13 @@ spring:
     encoding: UTF-8
     servlet:
       content-type: text/html
+
+#自动配置方式
+#      spring:
+#        application:
+#          name: data-bds-app
+#        datasource:
+#          url: jdbc:postgresql://localhost:5432/data_bds?useUnicode=true&characterEncoding=utf8&useSSL=true
+#          username: postgres
+#          password:
+#          driver-class-name: org.postgresql.Driver

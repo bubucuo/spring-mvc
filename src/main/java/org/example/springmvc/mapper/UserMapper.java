@@ -6,7 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+
+//这里混用了xml和注解配置映射器文件，xml配置的文件在resources/mapper/use.xml中
+//@Repository
 public interface UserMapper {
     List<User> find(Integer pageNo, Integer pageSize);
 

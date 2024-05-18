@@ -15,7 +15,9 @@ import org.springframework.util.ResourceUtils;
 
 import javax.sql.DataSource;
 
-@Configuration
+//通过注解配置Spring Bean
+// 如果xml配置也开启了，这里需要注释掉。因为bean不可以重名
+//@Configuration
 public class DataSourceConfig {
 
     @Bean
