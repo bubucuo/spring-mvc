@@ -107,9 +107,9 @@ public class UserServiceImpl implements UserService {
         user.setPassword(null);
 
         // 生成 唯一id 作为鉴权token，缓存到sessionCache中
-        param.setToken(UUID.randomUUID().toString());
-        sessionCache.put(param.getToken(), param);
-        log.info("用户:{} 登录成功", param.getUsername());
+        user.setToken(UUID.randomUUID().toString());
+        sessionCache.put(user.getToken(), user);
+        log.info("用户:{} 登录成功", user.getUsername());
         return user;//param;
     }
 

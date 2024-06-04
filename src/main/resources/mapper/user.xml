@@ -14,8 +14,12 @@
         select * from user where username = #{username}
     </select>
 
+<!--    <insert id="add" parameterType="org.example.springmvc.model.User"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">-->
+<!--        insert into user(`username`) values (#{username})-->
+<!--    </insert>-->
+
     <insert id="add" parameterType="org.example.springmvc.model.User"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        insert into user(`username`) values (#{username})
+        insert into user(`username`,`age`,`code`,`address`,`phone`, `password`) values (#{username},#{age},#{code},#{address},#{phone}, #{password})
     </insert>
 
     <update id="update" parameterType="org.example.springmvc.model.User" >
